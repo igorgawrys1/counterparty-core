@@ -7,7 +7,7 @@ namespace Gawrys\Counterparty\Report;
 use Gawrys\Counterparty\Enum\CheckStatus;
 
 /**
- * Immutable collection of {@see CheckResult} — the body of hard facts a risk strategy
+ * Immutable collection of {@see CheckResult} - the body of hard facts a risk strategy
  * consumes as ground truth.
  *
  * @implements \IteratorAggregate<int, CheckResult>

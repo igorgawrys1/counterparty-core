@@ -12,7 +12,7 @@ use Gawrys\Counterparty\Sanctions\SanctionsResult;
 use Gawrys\Counterparty\Support\ArrayReader;
 
 /**
- * Reference sanctions screening adapter targeting sanctions.network — a free, public
+ * Reference sanctions screening adapter targeting sanctions.network - a free, public
  * PostgREST API over consolidated OFAC/EU sanctions data. Matching is performed
  * server-side by the `search_sanctions(name)` function; this is the default provider
  * precisely because it carries no restrictive licence.

@@ -10,7 +10,7 @@ use Gawrys\Counterparty\Registry\RegistryDriver;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Reusable contract every {@see RegistryDriver} must satisfy — the mechanism that keeps
+ * Reusable contract every {@see RegistryDriver} must satisfy - the mechanism that keeps
  * the library extensible in practice. Third-party driver authors extend this case and
  * implement the two factory hooks; their driver should be wired to a mocked HTTP client
  * so the contract runs without live network access.

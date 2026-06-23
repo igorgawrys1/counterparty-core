@@ -17,7 +17,7 @@ composer cs:fix    # apply the coding standard
 
 - **Keep `composer check` green.** PHPStan runs at level max (with larastan / phpstan-symfony
   for the bridges); Psalm at errorLevel 1.
-- **Never weaken a static-analysis baseline to make an error go away** — fix the code.
+- **Never weaken a static-analysis baseline to make an error go away** - fix the code.
 - **Add tests** for new behaviour. Domain logic is covered by unit tests; external APIs are
   mocked (no live network in CI). New registry drivers should pass
   `RegistryDriverContractTestCase`.

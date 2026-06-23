@@ -20,7 +20,7 @@ enum CheckStatus: string
     }
 
     /**
-     * A finding the library could not determine — never to be treated as a pass.
+     * A finding the library could not determine - never to be treated as a pass.
      */
     public function isConclusive(): bool
     {

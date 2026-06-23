@@ -9,7 +9,7 @@ use Gawrys\Counterparty\Enum\CheckStatus;
 /**
  * The deterministic outcome of a single {@see \Gawrys\Counterparty\Check\Check}.
  *
- * Hard facts only — never an opinion. The optional {@see self::$proofId} carries a
+ * Hard facts only - never an opinion. The optional {@see self::$proofId} carries a
  * due-diligence proof token (e.g. the PL White List search identifier) together with the
  * timestamp so the lookup can be evidenced later. The raw payload retains the provider's
  * own response for audit; adapters are responsible for not placing unnecessary PII here.

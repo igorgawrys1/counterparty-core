@@ -9,13 +9,13 @@ use Gawrys\Counterparty\Exception\UnknownDriver;
 /**
  * One shared manager primitive reused across every driver axis (registries, sanctions
  * providers, AI providers, research tools). The mechanism is abstracted; the driver
- * shapes are not — each axis extends this with its own driver interface as the template
+ * shapes are not - each axis extends this with its own driver interface as the template
  * parameter.
  *
  * Two registration paths, both backed by the same resolution and lazy, memoised
  * instantiation:
- *  - {@see self::extend()}   — closure-based, Laravel-style DX for application code;
- *  - {@see self::register()} — a {@see DriverFactory}, DI-friendly and taggable in Symfony.
+ *  - {@see self::extend()}   - closure-based, Laravel-style DX for application code;
+ *  - {@see self::register()} - a {@see DriverFactory}, DI-friendly and taggable in Symfony.
  *
  * @template T of object
  */

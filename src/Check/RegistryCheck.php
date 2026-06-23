@@ -14,7 +14,7 @@ use Psr\Clock\ClockInterface;
 /**
  * Capability-routed check: asks the {@see RegistryManager} which driver can answer a
  * capability for the counterparty's country. When none can, it reports an honest
- * inconclusive result with the reason — never a guess. Adding a country/registry that
+ * inconclusive result with the reason - never a guess. Adding a country/registry that
  * covers the capability makes this check start working with zero changes here.
  */
 final readonly class RegistryCheck implements Check

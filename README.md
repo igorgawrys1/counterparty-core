@@ -6,7 +6,7 @@
 [![Psalm](https://img.shields.io/badge/Psalm-level%201-brightgreen.svg)](https://psalm.dev/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-The framework-agnostic heart of the **Counterparty Verification** toolkit — per-country
+The framework-agnostic heart of the **Counterparty Verification** toolkit - per-country
 **registry lookups**, **sanctions screening** and a pluggable **risk engine** for
 counterparty due diligence. Hexagonal: it depends only on PSR interfaces, so it drops into
 any framework (or none).
@@ -20,22 +20,22 @@ $outcome->requiresHumanReview();    // true on adverse / inconclusive / low-conf
 ```
 
 > ⚠️ **This is a due-diligence aid, not a compliance product.** It does **not** make you
-> "AML compliant" — that remains your responsibility. The risk score is **advisory**.
+> "AML compliant" - that remains your responsibility. The risk score is **advisory**.
 
 ## Features
 
-- **Hexagonal & dependency-light** — PSR-18/17 (HTTP), PSR-16 (cache), PSR-3 (log), PSR-20
+- **Hexagonal & dependency-light** - PSR-18/17 (HTTP), PSR-16 (cache), PSR-3 (log), PSR-20
   (clock). No framework, no vendor SDK in the core.
-- **Capability-aware registries** — drivers declare a `RegistryCapability`; the verifier
+- **Capability-aware registries** - drivers declare a `RegistryCapability`; the verifier
   routes by *(country + capability)* and returns an honest `inconclusive` when nothing
   covers a request. Adding a country is one driver + one registration.
-- **Reference adapters (PSR-18)** — PL White List (VAT status, IBAN match, search-id proof),
+- **Reference adapters (PSR-18)** - PL White List (VAT status, IBAN match, search-id proof),
   EU VIES, KRS, CEIDG, REGON, CRBR, sanctions.network (default) and OpenSanctions.
-- **Pluggable risk engine** — `RuleBasedRiskStrategy` composed of small `RiskRule`s; add
+- **Pluggable risk engine** - `RuleBasedRiskStrategy` composed of small `RiskRule`s; add
   your own without subclassing, or implement `RiskStrategy` for a bespoke model.
-- **Contract tests as a feature** — `RegistryDriverContractTestCase` certifies any
+- **Contract tests as a feature** - `RegistryDriverContractTestCase` certifies any
   third-party driver.
-- **Strict** — PHPStan max + Psalm level 1, fully typed.
+- **Strict** - PHPStan max + Psalm level 1, fully typed.
 
 ## Installation
 
@@ -137,7 +137,7 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## Contributing & Security
 
-Pull requests welcome. Please report security issues privately — see [SECURITY.md](SECURITY.md).
+Pull requests welcome. Please report security issues privately - see [SECURITY.md](SECURITY.md).
 
 ## Credits
 

@@ -13,7 +13,7 @@ interface RiskRule
 {
     /**
      * Inspect the hard facts and emit zero or more signals. Rules must be pure: no I/O,
-     * no clock, no randomness — given the same context they return the same signals.
+     * no clock, no randomness - given the same context they return the same signals.
      *
      * @return iterable<RiskSignal>
      */

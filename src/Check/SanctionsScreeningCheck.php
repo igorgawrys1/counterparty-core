@@ -13,7 +13,7 @@ use Psr\Clock\ClockInterface;
 
 /**
  * Screens the counterparty against a sanctions/PEP provider. A match is a hard,
- * deterministic FAIL — never softened, never left to the AI subsystem.
+ * deterministic FAIL - never softened, never left to the AI subsystem.
  */
 final readonly class SanctionsScreeningCheck implements Check
 {

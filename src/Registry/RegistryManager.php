@@ -17,7 +17,7 @@ final class RegistryManager extends AbstractDriverManager
 {
     /**
      * The first registered driver that covers the (country, capability) pair, or null
-     * when none does — the caller then reports an honest inconclusive result.
+     * when none does - the caller then reports an honest inconclusive result.
      */
     public function driverFor(string $country, RegistryCapability $capability): ?RegistryDriver
     {

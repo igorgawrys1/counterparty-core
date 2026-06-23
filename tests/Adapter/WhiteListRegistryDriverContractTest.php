@@ -16,7 +16,7 @@ use Gawrys\Counterparty\Tests\Fixture\MockHttp;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
- * The shipped reference White List registry driver must pass the public contract — the
+ * The shipped reference White List registry driver must pass the public contract - the
  * same one third-party driver authors run.
  */
 #[CoversClass(WhiteListRegistryDriver::class)]

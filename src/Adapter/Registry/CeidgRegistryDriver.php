@@ -8,7 +8,7 @@ use Gawrys\Counterparty\Enum\RegistryCapability;
 use Gawrys\Counterparty\Support\ArrayReader;
 
 /**
- * CEIDG driver — the register of sole proprietors and civil-law partnerships.
+ * CEIDG driver - the register of sole proprietors and civil-law partnerships.
  *
  * The biznes.gov.pl API requires a bearer token; pass it as the "Authorization" header
  * via the $headers constructor argument.

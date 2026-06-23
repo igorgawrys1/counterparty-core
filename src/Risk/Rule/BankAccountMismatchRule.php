@@ -11,7 +11,7 @@ use Gawrys\Counterparty\Risk\RiskRule;
 use Gawrys\Counterparty\Risk\RiskSignal;
 
 /**
- * Flags an IBAN that is not assigned to the counterparty on the PL White List — a
+ * Flags an IBAN that is not assigned to the counterparty on the PL White List - a
  * common indicator of payment-redirection fraud.
  */
 final class BankAccountMismatchRule implements RiskRule

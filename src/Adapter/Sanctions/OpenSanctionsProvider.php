@@ -16,7 +16,7 @@ use Gawrys\Counterparty\Support\ArrayReader;
  *
  * LICENCE NOTE: OpenSanctions data is offered under a non-commercial licence; commercial
  * use of the hosted API requires a paid agreement with OpenSanctions. This adapter is NOT
- * the default for that reason — {@see SanctionsNetworkProvider} is. Ensure you are
+ * the default for that reason - {@see SanctionsNetworkProvider} is. Ensure you are
  * licensed before using this in production.
  *
  * @see https://www.opensanctions.org/licensing/

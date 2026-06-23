@@ -13,7 +13,7 @@ use Gawrys\Counterparty\Tests\Fixture\FakeRegistryDriver;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
- * Proves the shipped contract test case is green against a conforming driver — the gate
+ * Proves the shipped contract test case is green against a conforming driver - the gate
  * for Phase 2.
  */
 #[CoversClass(RegistryDriverContractTestCase::class)]

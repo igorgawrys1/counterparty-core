@@ -15,7 +15,7 @@ use Gawrys\Counterparty\Support\ArrayReader;
  * of which are NIP-keyed and serve PL only. Subclasses declare their capabilities, build
  * the request URI, and decide whether the response represents a hit.
  *
- * Adding another Polish registry is a new subclass plus a registration — nothing in the
+ * Adding another Polish registry is a new subclass plus a registration - nothing in the
  * core, the checks, or the bridges changes.
  */
 abstract readonly class AbstractPolishRegistryDriver extends AbstractRegistryDriver

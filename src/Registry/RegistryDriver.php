@@ -9,7 +9,7 @@ use Gawrys\Counterparty\Enum\RegistryCapability;
 /**
  * A per-country registry adapter that DECLARES what it can answer.
  *
- * Adding a country or registry is one new driver plus its registration — no changes to
+ * Adding a country or registry is one new driver plus its registration - no changes to
  * the core, the checks, or the framework bridges. A driver must never claim a capability
  * it does not genuinely implement: the verifier trusts {@see self::supports()} and routes
  * accordingly, returning an inconclusive result when nothing covers a request.

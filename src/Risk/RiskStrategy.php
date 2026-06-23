@@ -12,7 +12,7 @@ use Gawrys\Counterparty\Report\VerificationReport;
  *
  * This is the seam: {@see RuleBasedRiskStrategy} is the deterministic default, an
  * application may provide a fully custom implementation, and the optional AI package
- * ships an LLM-backed strategy — all interchangeable behind this interface.
+ * ships an LLM-backed strategy - all interchangeable behind this interface.
  */
 interface RiskStrategy
 {
