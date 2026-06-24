@@ -11,7 +11,7 @@ namespace Gawrys\Counterparty\Registry;
 final readonly class LookupResult
 {
     /**
-     * @param array<string, mixed> $data structured, provider-specific payload
+     * @param array<array-key, mixed> $data structured, provider-specific payload
      */
     public function __construct(
         public bool $found,
@@ -22,7 +22,7 @@ final readonly class LookupResult
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param array<array-key, mixed> $data
      */
     public static function found(array $data, ?string $proofId = null, ?string $sourceUrl = null): self
     {

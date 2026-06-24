@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Gawrys\Counterparty\Enum;
 
 /**
- * What a {@see \Gawrys\Counterparty\Port\RegistryDriver} is able to answer.
+ * What a {@see \Gawrys\Counterparty\Registry\RegistryDriver} is able to answer.
  *
  * A driver declares the capabilities it genuinely supports; the verifier routes a
  * required capability to a driver that covers it for the relevant country. When no

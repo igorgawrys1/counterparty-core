@@ -17,7 +17,7 @@ use Gawrys\Counterparty\Enum\CheckStatus;
 final readonly class CheckResult
 {
     /**
-     * @param array<string, mixed> $raw provider's raw, structured response payload
+     * @param array<array-key, mixed> $raw provider's raw, structured response payload
      */
     public function __construct(
         public CheckStatus $status,
@@ -31,7 +31,7 @@ final readonly class CheckResult
     }
 
     /**
-     * @param array<string, mixed> $raw
+     * @param array<array-key, mixed> $raw
      */
     public static function pass(
         string $source,
@@ -45,7 +45,7 @@ final readonly class CheckResult
     }
 
     /**
-     * @param array<string, mixed> $raw
+     * @param array<array-key, mixed> $raw
      */
     public static function fail(
         string $source,
@@ -59,7 +59,7 @@ final readonly class CheckResult
     }
 
     /**
-     * @param array<string, mixed> $raw
+     * @param array<array-key, mixed> $raw
      */
     public static function warning(
         string $source,
@@ -73,7 +73,7 @@ final readonly class CheckResult
     }
 
     /**
-     * @param array<string, mixed> $raw
+     * @param array<array-key, mixed> $raw
      */
     public static function inconclusive(
         string $source,

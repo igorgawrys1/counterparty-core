@@ -19,11 +19,18 @@ final class SanctionsHitRule implements RiskRule
     {
         foreach ($context->report->fromSource(Source::SANCTIONS) as $result) {
             if ($result->isAdverse()) {
+                /** @var mixed $sourceUrl */
+                $sourceUrl = $result->raw['sourceUrl'] ?? null;
+
                 yield new RiskSignal(
                     'sanctions.hit',
                     1.0,
                     true,
-                    Evidence::ungrounded($result->summary, 1.0),
+                    // The deterministic CheckResult is the proof; attach the provider's URL
+                    // when available so the evidence is grounded rather than a bare claim.
+                    \is_string($sourceUrl) && $sourceUrl !== ''
+                        ? Evidence::grounded($result->summary, $sourceUrl, 0.95)
+                        : Evidence::ungrounded($result->summary, 0.0),
                 );
             }
         }

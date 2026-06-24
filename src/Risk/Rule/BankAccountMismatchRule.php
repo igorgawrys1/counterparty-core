@@ -24,9 +24,10 @@ final class BankAccountMismatchRule implements RiskRule
                     'bank_account.unassigned',
                     0.7,
                     true,
-                    Evidence::ungrounded(
+                    Evidence::grounded(
                         'The provided IBAN is not assigned to the counterparty on the White List.',
-                        1.0,
+                        'https://www.podatki.gov.pl/wykaz-podatnikow-vat-wyszukiwarka/',
+                        0.9,
                     ),
                 );
             }

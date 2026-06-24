@@ -16,16 +16,21 @@ use Gawrys\Counterparty\Risk\RiskSignal;
  */
 final class VatStatusRule implements RiskRule
 {
+    private const SOURCE_URLS = [
+        Source::WHITE_LIST => 'https://www.podatki.gov.pl/wykaz-podatnikow-vat-wyszukiwarka/',
+        Source::VIES => 'https://ec.europa.eu/taxation_customs/vies/',
+    ];
+
     public function evaluate(RiskContext $context): iterable
     {
-        foreach ([Source::WHITE_LIST, Source::VIES] as $source) {
+        foreach (self::SOURCE_URLS as $source => $url) {
             foreach ($context->report->fromSource($source) as $result) {
                 if ($result->status === CheckStatus::Fail) {
                     yield new RiskSignal(
                         'vat.inactive',
                         0.6,
                         false,
-                        Evidence::ungrounded($result->summary, 1.0),
+                        Evidence::grounded($result->summary, $url, 0.9),
                     );
                 }
             }

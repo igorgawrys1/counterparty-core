@@ -12,7 +12,7 @@ final readonly class WhiteListResult
 {
     /**
      * @param list<string> $accountNumbers assigned 26-digit NRB account numbers
-     * @param array<string, mixed> $raw
+     * @param array<array-key, mixed> $raw
      */
     public function __construct(
         public bool $found,
@@ -26,18 +26,21 @@ final readonly class WhiteListResult
     }
 
     /**
-     * Whether the given IBAN/NRB is among the entity's assigned accounts (compared on
-     * digits only, so a leading "PL" country code does not matter).
+     * Whether the given IBAN/NRB is among the entity's assigned accounts.
+     *
+     * Both sides are reduced to digits (so a leading "PL" country code does not matter) and
+     * compared for full equality - a partial/suffix match (e.g. only the last 10 digits) is
+     * deliberately NOT accepted, to avoid false positives. A Polish NRB is 26 digits.
      */
     public function hasAccount(string $iban): bool
     {
         $needle = self::digits($iban);
-        if ($needle === '') {
+        if (\strlen($needle) !== 26) {
             return false;
         }
 
         foreach ($this->accountNumbers as $account) {
-            if (str_ends_with(self::digits($account), $needle)) {
+            if (self::digits($account) === $needle) {
                 return true;
             }
         }

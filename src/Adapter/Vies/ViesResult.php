@@ -10,7 +10,7 @@ namespace Gawrys\Counterparty\Adapter\Vies;
 final readonly class ViesResult
 {
     /**
-     * @param array<string, mixed> $raw
+     * @param array<array-key, mixed> $raw
      */
     public function __construct(
         public bool $valid,

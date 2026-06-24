@@ -15,8 +15,11 @@ use Gawrys\Counterparty\Registry\LookupResult;
  */
 final readonly class ViesRegistryDriver extends AbstractRegistryDriver
 {
+    // ISO-3166-1 alpha-2 country codes (routing is by Counterparty::$country). Note that
+    // Greece's VAT prefix in VIES is "EL" while its ISO country code is "GR" - we route by
+    // the ISO code and the VAT prefix is taken from the counterparty's EU VAT number.
     private const EU_MEMBER_STATES = [
-        'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'EL', 'ES', 'FI', 'FR', 'HR', 'HU',
+        'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GR', 'HR', 'HU',
         'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK',
     ];
 

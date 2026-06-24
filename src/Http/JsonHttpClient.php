@@ -27,7 +27,7 @@ final readonly class JsonHttpClient
     /**
      * @param array<string, string> $headers
      *
-     * @return array<string, mixed>
+     * @return array<array-key, mixed>
      */
     public function getJson(string $uri, array $headers = []): array
     {
@@ -38,7 +38,7 @@ final readonly class JsonHttpClient
      * @param array<string, mixed> $payload
      * @param array<string, string> $headers
      *
-     * @return array<string, mixed>
+     * @return array<array-key, mixed>
      */
     public function postJson(string $uri, array $payload, array $headers = []): array
     {
@@ -64,7 +64,7 @@ final readonly class JsonHttpClient
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array<array-key, mixed>
      */
     private function send(RequestInterface $request): array
     {
@@ -103,7 +103,7 @@ final readonly class JsonHttpClient
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array<array-key, mixed>
      */
     private function decode(string $uri, string $body): array
     {
@@ -118,7 +118,7 @@ final readonly class JsonHttpClient
             throw HttpRequestFailed::invalidJson($uri);
         }
 
-        /** @var array<string, mixed> $decoded */
+        /** @var array<array-key, mixed> $decoded */
         return $decoded;
     }
 }
