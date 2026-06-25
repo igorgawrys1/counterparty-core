@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gawrys\Counterparty\Check;
 
+use Gawrys\Counterparty\Clock\SystemClock;
 use Gawrys\Counterparty\Counterparty;
 use Gawrys\Counterparty\Report\CheckResult;
 use Gawrys\Counterparty\Report\Source;
@@ -17,10 +18,13 @@ use Psr\Clock\ClockInterface;
  */
 final readonly class SanctionsScreeningCheck implements Check
 {
+    private ClockInterface $clock;
+
     public function __construct(
         private SanctionsProvider $provider,
-        private ClockInterface $clock,
+        ?ClockInterface $clock = null,
     ) {
+        $this->clock = $clock ?? new SystemClock();
     }
 
     public function name(): string

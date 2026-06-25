@@ -41,6 +41,17 @@ final class MockHttp
         );
     }
 
+    /**
+     * @param array<array-key, mixed> $data
+     */
+    public function setDefaultJson(array $data, int $status = 200): void
+    {
+        $body = json_encode($data, \JSON_THROW_ON_ERROR);
+        $this->client->setDefaultResponse(
+            $this->factory->createResponse($status)->withBody($this->factory->createStream($body)),
+        );
+    }
+
     public function jsonClient(): JsonHttpClient
     {
         return new JsonHttpClient($this->client, $this->factory, $this->factory);

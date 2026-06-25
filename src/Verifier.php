@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Gawrys\Counterparty;
 
 use Gawrys\Counterparty\Check\Check;
+use Gawrys\Counterparty\Clock\SystemClock;
 use Gawrys\Counterparty\Report\CheckResult;
 use Gawrys\Counterparty\Report\VerificationReport;
 use Gawrys\Counterparty\Risk\RiskStrategy;
@@ -25,6 +26,8 @@ final readonly class Verifier
     /** @var list<Check> */
     private array $checks;
 
+    private ClockInterface $clock;
+
     private LoggerInterface $logger;
 
     /**
@@ -33,10 +36,11 @@ final readonly class Verifier
     public function __construct(
         iterable $checks,
         private RiskStrategy $riskStrategy,
-        private ClockInterface $clock,
+        ?ClockInterface $clock = null,
         ?LoggerInterface $logger = null,
     ) {
         $this->checks = \is_array($checks) ? array_values($checks) : iterator_to_array($checks, false);
+        $this->clock = $clock ?? new SystemClock();
         $this->logger = $logger ?? new NullLogger();
     }
 

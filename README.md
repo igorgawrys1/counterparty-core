@@ -43,35 +43,47 @@ $outcome->requiresHumanReview();    // true on adverse / inconclusive / low-conf
 composer require gawrys/counterparty-core
 ```
 
-You also need a PSR-18 client + PSR-17 factories, e.g.:
+This package is HTTP-client agnostic: it depends on the PSR-18 / PSR-17 **interfaces** and
+declares `psr/http-client-implementation` + `psr/http-factory-implementation` as virtual
+requirements, so Composer asks you to choose a client. Install any PSR-18 implementation, e.g.:
 
 ```bash
 composer require symfony/http-client nyholm/psr7
+# or a Guzzle PSR-18 adapter, etc.
 ```
 
 ## Usage
 
-### Verify a counterparty
+### Quick start (auto-wired)
+
+The factory assembles the bundled checks (White List, VIES, sanctions.network) + the
+rule-based strategy. It auto-discovers your installed PSR-18 client and PSR-17 factories:
 
 ```php
+use Gawrys\Counterparty\CounterpartyVerifierFactory;
 use Gawrys\Counterparty\Counterparty;
+
+$verifier = CounterpartyVerifierFactory::discover();           // or ::create($psr18Client)
+$outcome  = $verifier->verify(new Counterparty('Acme', 'PL', nip: '1234567890', euVat: 'PL1234567890'));
+```
+
+### Manual wiring (full control)
+
+The clock is optional and defaults to `SystemClock`; pass a `FrozenClock` in tests.
+
+```php
 use Gawrys\Counterparty\Verifier;
-use Gawrys\Counterparty\Clock\SystemClock;
 use Gawrys\Counterparty\Risk\RuleBasedRiskStrategy;
 use Gawrys\Counterparty\Check\WhiteListCheck;
 use Gawrys\Counterparty\Adapter\WhiteList\HttpWhiteListClient;
 use Gawrys\Counterparty\Http\JsonHttpClient;
 
-$http  = new JsonHttpClient($psr18Client, $psr17Factory, $psr17Factory);
-$clock = new SystemClock();
+$http = new JsonHttpClient($psr18Client, $psr17Factory, $psr17Factory);
 
 $verifier = new Verifier(
-    checks: [new WhiteListCheck(new HttpWhiteListClient($http), $clock)],
+    checks: [new WhiteListCheck(new HttpWhiteListClient($http))], // clock defaults to SystemClock
     riskStrategy: RuleBasedRiskStrategy::withDefaultRules(),
-    clock: $clock,
 );
-
-$outcome = $verifier->verify(new Counterparty('Acme', 'PL', nip: '1234567890'));
 ```
 
 ### Add a country (one driver + one registration)
