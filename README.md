@@ -1,5 +1,7 @@
 # Counterparty Core
 
+[![Packagist Version](https://img.shields.io/packagist/v/gawrys/counterparty-core.svg)](https://packagist.org/packages/gawrys/counterparty-core)
+[![Total Downloads](https://img.shields.io/packagist/dt/gawrys/counterparty-core.svg)](https://packagist.org/packages/gawrys/counterparty-core)
 [![CI](https://github.com/igorgawrys1/counterparty-core/actions/workflows/ci.yml/badge.svg)](https://github.com/igorgawrys1/counterparty-core/actions/workflows/ci.yml)
 [![PHP](https://img.shields.io/badge/php-8.2%20|%208.3%20|%208.4-777bb4.svg)](https://www.php.net/)
 [![PHPStan](https://img.shields.io/badge/PHPStan-max-brightgreen.svg)](https://phpstan.org/)
