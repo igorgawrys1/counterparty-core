@@ -160,3 +160,5 @@ Pull requests welcome. Please report security issues privately - see [SECURITY.m
 ## License
 
 The MIT License (MIT). See [LICENSE](LICENSE).
+
+<!-- claude-review-test -->
