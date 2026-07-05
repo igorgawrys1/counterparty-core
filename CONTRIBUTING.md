@@ -4,14 +4,20 @@ Thanks for your interest in improving Counterparty Verification.
 
 ## Development
 
-This is a development **monorepo**; the four packages are split to read-only repositories
-for distribution. Work against the monorepo.
+This is a standalone package repo, one of four that make up the toolkit
+([core](https://github.com/igorgawrys1/counterparty-core),
+[ai](https://github.com/igorgawrys1/counterparty-ai),
+[laravel](https://github.com/igorgawrys1/counterparty-laravel),
+[bundle](https://github.com/igorgawrys1/counterparty-bundle)), all published on Packagist.
 
 ```bash
 composer install
 composer check     # php-cs-fixer (dry-run) + PHPStan max + Psalm level 1 + PHPUnit
 composer cs:fix    # apply the coding standard
 ```
+
+To develop a dependent package against a local checkout of `core`, add a path repository to
+its `composer.json`: `"repositories": [{ "type": "path", "url": "../counterparty-core" }]`.
 
 ## Ground rules
 
@@ -36,3 +42,13 @@ no changes to the core. See the [README](README.md) for the full picture.
 The `ai` package is advisory only and must never decide hard pass/fail. Every model claim
 must be grounded in a tool's source URL; prompts are versioned (bump `RiskPromptBuilder::VERSION`
 on change).
+
+## Releasing (maintainers)
+
+A `Release` workflow (`.github/workflows/release.yml`) fires on a `v*` tag, so publishing is:
+
+1. Add a `## [0.1.x]` section to `CHANGELOG.md`.
+2. `git tag v0.1.x && git push --tags`.
+
+The workflow creates a GitHub Release from that changelog section and notifies Packagist via
+its update API (authenticated with the `PACKAGIST_USERNAME` / `PACKAGIST_TOKEN` repo secrets).
