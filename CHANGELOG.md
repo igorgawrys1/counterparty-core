@@ -3,6 +3,12 @@
 All notable changes are documented here, following [Keep a Changelog](https://keepachangelog.com/)
 and [Semantic Versioning](https://semver.org/).
 
+## [0.1.4]
+
+### Added
+- Automated release pipeline: pushing a `v*` tag creates a GitHub Release from the changelog
+  and notifies Packagist.
+
 ## [0.1.3]
 
 ### Changed
